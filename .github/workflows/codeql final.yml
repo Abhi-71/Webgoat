@@ -47,9 +47,9 @@ jobs:
         # queries: security-extended,security-and-quality
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      continue-on-error: true
-      uses: github/codeql-action/autobuild@v2
+    #- name: Autobuild
+     # continue-on-error: true
+     # uses: github/codeql-action/autobuild@v2
     # :information_source: Command-line programs to run using the OS shell.
     # :books: See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
     #   If the Autobuild fails above, remove it and uncomment the following three lines.
@@ -57,5 +57,7 @@ jobs:
     - run: |
        echo "Run, Build Application using script"
        ./location_of_script_within_repo/buildscript.sh
+       codeql database create java-database --language=java --command='mvn clean install'
+       
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
