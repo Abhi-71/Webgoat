@@ -56,7 +56,7 @@ jobs:
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
     - run: |
        echo "Run, Build Application using script"
-       ./Webgoat/blob/main/pom.xml/buildscript.sh
+       .github/workflows/build.yml
        codeql database create java-database --language=java --command='mvn clean install'
        
     - name: Perform CodeQL Analysis
